@@ -31,7 +31,7 @@ public class UserControllerTest {
 @Test
 @DisplayName("유저 생성 확인")
 public void UserAdd() throws Exception {
-	User user=new User(null,"kim",new Date());
+	User user=new User(null,"kim",new Date(),"","");
 	String content=objectMapper.writeValueAsString(user);
 	mockMvc.perform(post("/users").content(content).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andDo(print());
 }

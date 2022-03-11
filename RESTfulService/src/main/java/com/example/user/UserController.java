@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,9 +38,12 @@ public User retrieveUser(@PathVariable int id){
 	return user;
 }
 @PostMapping("/users")
-public ResponseEntity createUser(@RequestBody User user) {
+public ResponseEntity createUser(@Valid@RequestBody User user) {
 	User savedUser=service.save(user);
-	URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
+	URI location=ServletUriComponentsBuilder.fromCurrentRequest()
+			.path("/{id}")
+			.buildAndExpand(savedUser.getId())
+			.toUri();
 	
 	return ResponseEntity.created(location).build();
 	

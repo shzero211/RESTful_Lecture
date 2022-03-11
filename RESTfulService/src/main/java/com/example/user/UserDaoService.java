@@ -14,9 +14,9 @@ private static int usersCount=3;
 
 static {
 	
-	users.add(new User(1,"ke",new Date()));
-	users.add(new User(2,"alice",new Date()));
-	users.add(new User(3,"Elena",new Date()));
+	users.add(new User(1,"ke",new Date(),"pass1","701010-11111111"));
+	users.add(new User(2,"alice",new Date(),"pass2","801010-11111111"));
+	users.add(new User(3,"Elena",new Date(),"pass3","901010-11111111"));
 }
 
 public List<User> findAll(){
